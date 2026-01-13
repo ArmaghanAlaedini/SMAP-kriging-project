@@ -1,4 +1,4 @@
-# 02_detrend.R
+# 03_detrend.R
 # Trend check + residuals (runs for AM + PM)
 
 source("00_config.R")
