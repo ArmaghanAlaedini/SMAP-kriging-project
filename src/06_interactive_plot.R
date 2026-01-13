@@ -1,7 +1,10 @@
 # 05_interactive_plots
 # HTML file + Shiny app for interactive prediction map (runs for AM + PM)
 
+<<<<<<< HEAD
 theme_set(SMAP_theme())
+=======
+>>>>>>> 128a143 (Codes added)
 source("00_config.R")
 source("01_utils_theme.R")
 
