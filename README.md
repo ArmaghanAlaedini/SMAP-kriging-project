@@ -88,7 +88,7 @@ Typical outputs include:
 
 ---
 
-## Packages
+## 📦 Packages
 To install the required packages for this workflow, run the following lines in your terminal. 
 
 `conda env create -f environment.yml`
