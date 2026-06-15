@@ -1,23 +1,20 @@
-name: py310
+name: smap-kriging-r
+
 channels:
   - conda-forge
-  - defaults
-  - gurobi
+  - bioconda
+
 dependencies:
-  - python=3.10
-  - numpy
-  - seaborn
-  - jupyterlab
-  - pykrige
-  - gurobi
-  - h5netcdf
-  - h5py
-  - matplotlib
-  - netcdf4
-  - xarray
-  - pandas
-  - black
-  - tk
-  - ipython
-  - pyinterpolate
-  - scikit-learn
+  - r-base
+  - r-here
+  - r-ggplot2
+  - r-leaflet
+  - r-htmlwidgets
+  - r-sf
+  - r-dplyr
+  - r-shiny
+  - r-shinythemes
+  - r-htmltools
+  - r-viridislite
+  - bioconductor-rhdf5
+  - pandoc

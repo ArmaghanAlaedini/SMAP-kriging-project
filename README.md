@@ -88,6 +88,15 @@ Typical outputs include:
 
 ---
 
+## Packages
+To install the required packages for this workflow, run the following lines in your terminal. 
+
+`conda env create -f environment.yml`
+
+`conda activate smap-kriging-r`
+
+`Rscript install_extra.R`
+
 ## 📩 Contact
 
 Maintainer: Armaghan Alaedini
