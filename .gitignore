@@ -84,3 +84,17 @@ conda-env/
 .env
 .env.*
 .condarc
+
+
+################################################################################
+# Credentials — never commit
+################################################################################
+.netrc
+*.netrc
+.edl_token
+.Renviron
+*.pem
+*.key
+
+Rplots.pdf
+.Rproj.user/

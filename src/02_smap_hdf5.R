@@ -7,7 +7,10 @@ library(rhdf5)
 data_path <- file.path(cfg$data_dir, cfg$data_file)
 save_path <- file.path(cfg$smap_dir)
 
+# stopifnot(file.exists(data_path))
+if (is.na(cfg$data_file)) stop("no granule on disk for ", cfg$date_tag)
 stopifnot(file.exists(data_path))
+
 dir.create(save_path, recursive = TRUE, showWarnings = FALSE)
 
 date_of_data <- cfg$date_tag # date substring of data file

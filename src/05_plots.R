@@ -33,17 +33,17 @@ for (p in cfg$passes_available) {
   twnshp_type0  <- readRDS(file.path(out_rds, "twnshp_type0.rds"))
   
   # ------ observed SMAP pixels over Iowa ------ 
-  SMAP_observations_in_IA <- ggplot() +
-    geom_sf(data = cells_ease, aes(fill = soil_moisture), color = NA, linewidth = 0) +
-    geom_sf(data = twnshp_type0, fill = NA, color = "white", linewidth = 0.15, alpha = 0.06) +
-    scale_fill_viridis_c(name = "Observed soil moisture (m³/m³)", direction = -1,
-      limits = cfg$lims_sm_global, guide = guide_colorbar(title.position = "top",
-        title.hjust    = 0.5,
-        barwidth       = unit(0.5, "npc"),
-        barheight      = unit(0.35, "cm"))) + 
-    coord_sf(expand = FALSE)
-  SMAP_observations_in_IA
-  save_both(SMAP_observations_in_IA, "SMAP_observed_Iowa", outdir = out_maps)
+  # SMAP_observations_in_IA <- ggplot() +
+  #   geom_sf(data = cells_ease, aes(fill = soil_moisture), color = NA, linewidth = 0) +
+  #   geom_sf(data = twnshp_type0, fill = NA, color = "white", linewidth = 0.15, alpha = 0.06) +
+  #   scale_fill_viridis_c(name = "Observed soil moisture (m³/m³)", direction = -1,
+  #     limits = cfg$lims_sm_global, guide = guide_colorbar(title.position = "top",
+  #       title.hjust    = 0.5,
+  #       barwidth       = unit(0.5, "npc"),
+  #       barheight      = unit(0.35, "cm"))) + 
+  #   coord_sf(expand = FALSE)
+  # SMAP_observations_in_IA
+  # save_both(SMAP_observations_in_IA, "SMAP_observed_Iowa", outdir = out_maps)
   
   # ------ observed SMAP pixels cropped over Iowa ----
   IA_union <- st_union(st_make_valid(twnshp_type0))
@@ -64,11 +64,11 @@ for (p in cfg$passes_available) {
   SMAP_observations_in_IA_clipped
   save_both(SMAP_observations_in_IA_clipped, "SMAP_observed_Iowa_clipped", outdir = out_maps)
   
-  # ------ predicted soil moisture over Iowa ------ 
+  # ------ Estimated soil moisture over Iowa ------ 
   Kriging_Prediction_in_IA <- ggplot(twn_pred) +
     geom_sf(aes(fill = pred_final), color = "white", linewidth = 0) +
     scale_fill_viridis_c(
-      name = "Predicted soil moisture (m³/m³)",
+      name = "Estimated soil moisture (m³/m³)",
       direction = -1,
       limits = cfg$lims_sm_global, guide = guide_colorbar(title.position = "top",
         title.hjust    = 0.5,
@@ -76,7 +76,7 @@ for (p in cfg$passes_available) {
         barheight      = unit(0.35, "cm"))) + 
     coord_sf(expand = FALSE)
   Kriging_Prediction_in_IA
-  save_both(Kriging_Prediction_in_IA, "SMAP_predicted_townships_Iowa", outdir = out_maps)
+  save_both(Kriging_Prediction_in_IA, "SMAP_estimated_townships_Iowa", outdir = out_maps)
   
   # ------  SD plot of predictions ------ 
   IA_SD_uncertainty <- ggplot(twn_pred) +
@@ -92,15 +92,16 @@ for (p in cfg$passes_available) {
   save_both(IA_SD_uncertainty, "SMAP_uncertainty_sd_townships", outdir = out_maps)
   
   # ------ township plot by area ------ 
-  Iowa_townships_size <- ggplot(twn_pred) +
-    geom_sf(aes(fill = area_km2), color = NA, linewidth = 0) +
-    scale_fill_viridis_c(name = "Area (km²)", direction = 1, guide = guide_colorbar(title.position = "top",
-        title.hjust    = 0.5,
-        barwidth       = unit(0.5, "npc"),
-        barheight      = unit(0.35, "cm"))) +
-    coord_sf(expand = FALSE)
-  Iowa_townships_size
-  save_both(Iowa_townships_size, "Iowa_townships_area_km2", outdir = out_maps)
+#   Iowa_townships_size <- ggplot(twn_pred) +
+#     geom_sf(aes(fill = area_km2), color = NA, linewidth = 0) +
+#     scale_fill_viridis_c(name = "Area (km²)", direction = 1, guide = guide_colorbar(title.position = "top",
+#         title.hjust    = 0.5,
+#         barwidth       = unit(0.5, "npc"),
+#         barheight      = unit(0.35, "cm"))) +
+#     coord_sf(expand = FALSE)
+#   Iowa_townships_size
+#   save_both(Iowa_townships_size, "Iowa_townships_area_km2", outdir = out_maps)
+
 }
 
 #checked

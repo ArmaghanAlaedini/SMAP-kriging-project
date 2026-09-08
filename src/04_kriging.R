@@ -26,6 +26,14 @@ for (p in cfg$passes_available) {
   # loading detrended output (PASS-specific)
   cells_ease <- readRDS(in_cells)
   
+  # A variogram cannot be fit from a few points. Thin passes happen
+  # routinely (2026-09-07 AM had 16 cells), so skip rather than fail the run.
+  if (nrow(cells_ease) < cfg$min_cells) {
+    cat("SKIP:", p, "-- only", nrow(cells_ease),
+        "cells, need at least", cfg$min_cells, "\n")
+    next
+  }
+
   # discretizing
   sm_discrete <- discretizePolygon(
     cells_ease,

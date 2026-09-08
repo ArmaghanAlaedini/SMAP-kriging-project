@@ -5,6 +5,11 @@ channels:
   - bioconda
 
 dependencies:
+  # Python side (download step only)
+  - python=3.12
+  - pip
+
+  # R side (everything else)
   - r-base
   - r-here
   - r-ggplot2
@@ -18,3 +23,6 @@ dependencies:
   - r-viridislite
   - bioconductor-rhdf5
   - pandoc
+
+  - pip:
+      - earthaccess
