@@ -97,7 +97,6 @@ does nothing unless you set `SMAP_FORCE=1`.
 
 ```text
 fetch_smap.py            download one date from Earthdata (earthaccess)
-diag_smap.py             list available versions and recent granules
 run_day.R                run the full pipeline for one date
 run_daily.sh             cron entry point, rolling window
 src/
